@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>聊天室</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>聊天室</h2>
+            <div class="user-info">
+                <span id="currentUsername"></span>
+                <button onclick="logout()">登出</button>
+            </div>
+        </div>
+        <div class="online-users">
+            <h3>在线用户</h3>
+            <ul id="onlineUsers"></ul>
+        </div>
+        <div class="chat-messages" id="messages"></div>
+        <div class="chat-input">
+            <select id="targetUser">
+                <option value="">所有人</option>
+            </select>
+            <input type="text" id="messageInput" placeholder="输入消息...">
+            <button onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
