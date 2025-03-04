@@ -1,5 +1,4 @@
 const socket = io();
-window.location.href = '/login.html';
 // 显示当前用户名
 function showUsername() {
     const username = localStorage.getItem('username');
@@ -90,13 +89,8 @@ function sendMessage() {
 // 登出
 function logout() {
     localStorage.removeItem('username'); // 清除用户名
-    window.location.href = '/login.html'; // 跳转到登录页面
+    window.location.href = '/acb.github.io/login.html'; // 跳转到登录页面
 }
-
-// 页面加载时显示用户名
-window.onload = () => {
-    showUsername();
-};
 
 // 登录
 function login() {
@@ -110,7 +104,7 @@ function login() {
     }
 
     // 发送登录请求
-    fetch('/login', {
+    fetch('/acb.github.io/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -119,7 +113,7 @@ function login() {
     .then(data => {
         if (data.message === '登录成功') {
             localStorage.setItem('username', username); // 存储用户名
-            window.location.href = '/index.html'; // 跳转到聊天室页面
+            window.location.href = '/acb.github.io/index.html'; // 跳转到聊天室页面
         } else {
             alert(data.message); // 显示错误信息
         }
@@ -142,7 +136,7 @@ function register() {
     }
 
     // 发送注册请求
-    fetch('/register', {
+    fetch('/acb.github.io/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -151,7 +145,7 @@ function register() {
     .then(data => {
         alert(data.message);
         if (data.message === '注册成功') {
-            window.location.href = '/login.html'; // 跳转到登录页面
+            window.location.href = '/acb.github.io/login.html'; // 跳转到登录页面
         }
     })
     .catch(error => {
