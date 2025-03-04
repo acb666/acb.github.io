@@ -1,5 +1,5 @@
 const socket = io();
-
+window.location.href = '/login.html';
 // 显示当前用户名
 function showUsername() {
     const username = localStorage.getItem('username');
